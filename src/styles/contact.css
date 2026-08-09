@@ -1,0 +1,79 @@
+.contact {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid var(--line);
+  background: radial-gradient(ellipse at 50% 100%, #14151a 0%, #0a0b0d 60%);
+  overflow: hidden;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0 140px;
+}
+
+.contact-heading {
+  font-family: var(--f-display);
+  font-size: clamp(56px, 8vw, 118px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-top: 28px;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-top: 56px;
+  font-family: var(--f-mono);
+  font-size: 22px;
+  color: var(--gold);
+  border-bottom: 1px solid var(--indigo-soft);
+  padding-bottom: 6px;
+  transition: border-color 0.25s ease;
+}
+
+.contact-email:hover {
+  border-color: var(--gold);
+}
+
+.contact-actions {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.contact-socials-row {
+  display: flex;
+  gap: 28px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-socials-row a {
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.contact-socials-row a:hover {
+  color: var(--text);
+}
+
+.contact-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  padding-bottom: 40px;
+  border-top: 1px solid var(--line);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
