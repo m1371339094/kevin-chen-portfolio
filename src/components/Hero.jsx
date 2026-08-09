@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <video className="hero-video" autoPlay loop muted playsInline>
-        <source src="/hero-reel.mp4" type="video/mp4" />
+        <source src={import.meta.env.BASE_URL + 'hero-reel.mp4'} type="video/mp4" />
       </video>
       <div className="hero-vignette" />
       <div className="hero-grid-lines" aria-hidden="true" />
