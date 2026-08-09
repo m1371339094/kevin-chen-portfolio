@@ -17,22 +17,25 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.9;
+  z-index: 0;
 }
 
 .hero-vignette {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: radial-gradient(
     ellipse at 50% 45%,
     transparent 0%,
-    rgba(10, 11, 13, 0.55) 68%,
-    rgba(10, 11, 13, 0.96) 100%
+    rgba(10, 11, 13, 0.35) 68%,
+    rgba(10, 11, 13, 0.75) 100%
   );
 }
 
 .hero-grid-lines {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image: linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 84px 84px;
