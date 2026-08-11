@@ -21,7 +21,6 @@
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.02em;
-  margin-top: 28px;
 }
 
 .contact-email {
@@ -30,13 +29,9 @@
   font-family: var(--f-mono);
   font-size: 22px;
   color: var(--gold);
-  border-bottom: 1px solid var(--indigo-soft);
+  border-bottom: 1px solid rgba(88, 101, 242, 0.35);
   padding-bottom: 6px;
-  transition: border-color 0.25s ease;
-}
-
-.contact-email:hover {
-  border-color: var(--gold);
+  cursor: pointer;
 }
 
 .contact-actions {
@@ -57,11 +52,7 @@
 
 .contact-socials-row a {
   color: var(--text-dim);
-  transition: color 0.2s ease;
-}
-
-.contact-socials-row a:hover {
-  color: var(--text);
+  cursor: pointer;
 }
 
 .contact-footer {
@@ -76,4 +67,18 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   color: var(--text-faint);
+}
+
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: clamp(40px, 12vw, 72px);
+  }
+  .contact-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .contact-email {
+    font-size: 16px;
+  }
 }

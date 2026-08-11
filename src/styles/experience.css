@@ -11,7 +11,6 @@
   font-family: var(--f-display);
   font-size: 44px;
   font-weight: 500;
-  margin-top: 20px;
   letter-spacing: -0.01em;
 }
 
@@ -24,7 +23,7 @@
 
 .role-card {
   padding: 36px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .role-card:first-child {
@@ -34,7 +33,6 @@
 
 .role-top {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 16px;
 }
 
@@ -76,29 +74,9 @@
   color: var(--indigo);
 }
 
-.project-highlight {
-  border-top: 1px dashed var(--line-strong);
-}
-
-.project-github {
-  display: inline-block;
-  margin-top: 18px;
-  font-family: var(--f-mono);
-  font-size: 12.5px;
-  color: var(--indigo);
-  border-bottom: 1px solid transparent;
-  word-break: break-all;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.project-github:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
 .experience-side {
   position: sticky;
-  top: 140px;
+  top: 120px;
   display: flex;
   flex-direction: column;
   gap: 44px;
@@ -108,11 +86,10 @@
 
 .side-label {
   display: block;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-faint);
+  font-family: var(--f-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
   margin-bottom: 20px;
 }
 
@@ -150,12 +127,8 @@
   color: var(--text-dim);
   line-height: 1.6;
   padding: 12px 0;
-  border-top: 1px solid var(--line);
-  transition: color 0.2s ease;
-}
-
-.side-cert:hover {
-  color: var(--gold);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
 }
 
 .side-cert:first-of-type {
@@ -173,4 +146,18 @@
   font-size: 11px;
   color: var(--text-faint);
   margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .experience-side {
+    position: static;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 48px;
+  }
 }

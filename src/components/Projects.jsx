@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import { projects } from '../data.js'
 import '../styles/projects.css'
 
@@ -5,31 +6,48 @@ export default function Projects() {
   return (
     <section id="work" className="projects">
       <div className="container projects-head">
-        <p className="eyebrow">Selected Work — 04 / 06</p>
-        <h2 className="projects-heading">
+        <motion.h2
+          className="projects-heading"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           Systems and applications, built end to end.
-        </h2>
+        </motion.h2>
       </div>
 
       <div className="container projects-list">
-        {projects.map((p) => (
-          <a
+        {projects.map((p, i) => (
+          <motion.a
             href={p.github}
             target="_blank"
             rel="noreferrer"
-            className="project-card"
+            className={`project-card tone-${p.tone}`}
             key={p.index}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{
+              duration: 0.6,
+              delay: i * 0.07,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            whileHover={{ borderColor: 'rgba(255,255,255,0.18)' }}
           >
-            <div className={`project-media tone-${p.tone}`}>
-              {/* Swap for real project imagery: <img src="..." alt={p.title} /> */}
-              <span className="project-media-index">{p.index}</span>
+            <div className="project-media">
+              <div className="project-media-inner" />
             </div>
             <div className="project-info">
               <div className="project-info-top">
-                <span className="section-index">P.{p.index}</span>
                 <span className="project-year">{p.year}</span>
               </div>
-              <h3 className="project-title">{p.title}</h3>
+              <motion.h3
+                className="project-title"
+                whileHover={{ color: 'var(--gold)' }}
+              >
+                {p.title}
+              </motion.h3>
               <p className="project-subtitle">{p.subtitle}</p>
               <p className="project-description">{p.description}</p>
               <div className="project-tags">
@@ -39,12 +57,14 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-              <span className="project-repo-link">View on GitHub ↗</span>
+              <motion.span
+                className="project-repo-link"
+                whileHover={{ color: 'var(--gold)' }}
+              >
+                View on GitHub
+              </motion.span>
             </div>
-            <span className="project-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>

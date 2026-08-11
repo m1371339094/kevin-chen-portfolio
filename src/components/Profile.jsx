@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import { profile } from '../data.js'
 import '../styles/profile.css'
 
@@ -5,21 +6,26 @@ export default function Profile() {
   return (
     <section id="profile" className="profile">
       <div className="container profile-grid">
-        <div className="profile-media">
+        <motion.div
+          className="profile-media"
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="profile-image">
-            {/* Swap for a real photo: <img src="/portrait.jpg" alt="Kevin Chen" /> */}
-            <div className="profile-image-placeholder">
-              <span>KC</span>
-            </div>
-            <span className="corner corner-tl" />
-            <span className="corner corner-br" />
+            <img src={import.meta.env.BASE_URL + 'me.jpg'} alt="Kevin Chen" />
           </div>
-          <p className="profile-caption">PORTRAIT — NYC / 2026</p>
-        </div>
+        </motion.div>
 
-        <div className="profile-content">
+        <motion.div
+          className="profile-content"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        >
           <div className="profile-head">
-            <p className="eyebrow">Profile — 02 / 06</p>
             <h2 className="profile-heading">
               Design fluent in both craft and computation.
             </h2>
@@ -56,23 +62,20 @@ export default function Profile() {
               <span className="contact-label">Elsewhere</span>
               <span className="contact-value contact-socials">
                 {profile.socials.map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer">
+                  <motion.a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ color: 'var(--gold)' }}
+                  >
                     {s.label}
-                  </a>
+                  </motion.a>
                 ))}
               </span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="container profile-stats">
-        {profile.stats.map((s) => (
-          <div className="stat" key={s.label}>
-            <span className="stat-value">{s.value}</span>
-            <span className="stat-label">{s.label}</span>
-          </div>
-        ))}
+        </motion.div>
       </div>
     </section>
   )
