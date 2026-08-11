@@ -5,7 +5,14 @@ import '../styles/hero.css'
 export default function Hero() {
   return (
     <section id="hero" className="hero">
-      <video className="hero-video" autoPlay loop muted playsInline>
+      <video
+        className="hero-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={import.meta.env.BASE_URL + 'hero-poster.svg'}
+      >
         <source src={import.meta.env.BASE_URL + 'hero-reel.mp4'} type="video/mp4" />
       </video>
       <div className="hero-vignette" />

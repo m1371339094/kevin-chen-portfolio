@@ -20,7 +20,7 @@ export default function Projects() {
       <div className="container projects-list">
         {projects.map((p, i) => (
           <motion.a
-            href={p.github}
+            href={p.live || p.github}
             target="_blank"
             rel="noreferrer"
             className={`project-card tone-${p.tone}`}
@@ -36,7 +36,12 @@ export default function Projects() {
             whileHover={{ borderColor: 'rgba(255,255,255,0.18)' }}
           >
             <div className="project-media">
-              <div className="project-media-inner" />
+              <img
+                className="project-media-img"
+                src={import.meta.env.BASE_URL + 'projects/' + p.index + '.png'}
+                alt={p.title}
+                loading="lazy"
+              />
             </div>
             <div className="project-info">
               <div className="project-info-top">
@@ -61,7 +66,7 @@ export default function Projects() {
                 className="project-repo-link"
                 whileHover={{ color: 'var(--gold)' }}
               >
-                View on GitHub
+                {p.live ? 'View Live Site' : 'View on GitHub'}
               </motion.span>
             </div>
           </motion.a>

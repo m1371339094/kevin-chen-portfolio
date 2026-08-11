@@ -41,21 +41,28 @@
   border: 1px solid var(--line);
 }
 
-.project-media-inner {
+.project-media-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.tone-gold .project-media-inner {
+/* Gradient fallbacks shown while image loads or if missing */
+.project-media {
+  background: var(--bg-panel);
+}
+
+.tone-gold .project-media {
   background: linear-gradient(140deg, #2a2213 0%, #14120c 55%, #0a0b0d 100%);
 }
-.tone-indigo .project-media-inner {
+.tone-indigo .project-media {
   background: linear-gradient(140deg, #171a2c 0%, #121317 55%, #0a0b0d 100%);
 }
-.tone-mono .project-media-inner {
+.tone-mono .project-media {
   background: linear-gradient(140deg, #1c1d22 0%, #131418 55%, #0a0b0d 100%);
 }
-.tone-split .project-media-inner {
+.tone-split .project-media {
   background: linear-gradient(135deg, #2a2213 0%, #121317 50%, #171a2c 100%);
 }
 
